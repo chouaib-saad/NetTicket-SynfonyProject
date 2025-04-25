@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Caissier index{% endblock %}
+
+{% block body %}
+    <h1>Caissier index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>NumeroCaisse</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for caissier in caissiers %}
+            <tr>
+                <td>{{ caissier.id }}</td>
+                <td>{{ caissier.nom }}</td>
+                <td>{{ caissier.numeroCaisse }}</td>
+                <td>
+                    <a href="{{ path('app_caissier_show', {'id': caissier.id}) }}">show</a>
+                    <a href="{{ path('app_caissier_edit', {'id': caissier.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_caissier_new') }}">Create new</a>
+{% endblock %}

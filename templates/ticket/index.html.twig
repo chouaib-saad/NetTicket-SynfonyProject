@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Tickets{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h2><i class="bi bi-receipt"></i> Liste des Tickets</h2>
+            <a href="{{ path('app_ticket_new') }}" class="btn btn-success">
+                <i class="bi bi-plus-circle"></i> Créer un nouveau ticket
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Numéro</th>
+                            <th>Date</th>
+                            <th>Caissier</th>
+                            <th>Montant</th>
+                            <th>Produits</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for ticket in tickets %}
+                        <tr>
+                            <td>{{ ticket.numeroTicket }}</td>
+                            <td>{{ ticket.date ? ticket.date|date('d/m/Y H:i') : '' }}</td>
+                            <td>{{ ticket.caissier }}</td>
+                            <td>{{ ticket.montantTotal }} €</td>
+                            <td>
+                                {% for produit in ticket.produits %}
+                                    <span class="badge bg-primary">{{ produit }}</span>
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <a href="{{ path('app_ticket_show', {'id': ticket.id}) }}" class="btn btn-sm btn-info btn-action" title="Voir">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a href="{{ path('app_ticket_edit', {'id': ticket.id}) }}" class="btn btn-sm btn-warning btn-action" title="Modifier">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                {{ include('ticket/_delete_form.html.twig') }}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="6" class="text-center">Aucun ticket trouvé</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+    <div class="mb-3">
+        {{ form_label(form.numeroTicket, 'Numéro du ticket', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.numeroTicket, {'attr': {'class': 'form-control'}}) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.numeroTicket) }}
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        {{ form_label(form.date, 'Date et heure', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.date, {'attr': {'class': 'form-control datetimepicker'}}) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.date) }}
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        {{ form_label(form.caissier, 'Caissier', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.caissier, {'attr': {'class': 'form-select'}}) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.caissier) }}
+        </div>
+    </div>
+    
+    <div class="mb-3">
+        {{ form_label(form.produits, 'Produits', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.produits, {'attr': {'class': 'form-select', 'size': 5}}) }}
+        <div class="invalid-feedback">
+            {{ form_errors(form.produits) }}
+        </div>
+    </div>
+    
+ <div class="mb-3">
+    {{ form_label(form.montantTotal, 'Montant total', {'label_attr': {'class': 'form-label'}}) }}
+    {{ form_widget(form.montantTotal, {
+        'attr': {
+            'class': 'form-control',
+            'step': '0.01'  # Pour accepter les valeurs décimales
+        }
+    }) }}
+    <div class="invalid-feedback">
+        {{ form_errors(form.montantTotal) }}
+    </div>
+</div>
+    
+    <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
