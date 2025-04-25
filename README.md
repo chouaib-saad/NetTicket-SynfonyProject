@@ -51,23 +51,25 @@ NetTicket est une application web développée en PHP, destinée à la **gestion
 
 ## 📁 Structure de Projet (principaux dossiers)
 
-netticket/ ├── public/ # Point d’entrée (index.php) ├── src/ │ ├── Controller/ # Contrôleurs MVC │ ├── Entity/ # Entités (Doctrine) │ ├── Repository/ # Accès base de données ├── templates/ # Fichiers de vues (HTML / Twig) ├── config/ # Config Doctrine, routes... ├── .env # Variables d’environnement ├── composer.json # Dépendances PHP
+<pre>
+netticket/
+├── public/                   # Point d’entrée principal (index.php)
+│
+├── src/                      # Code source principal
+│   ├── Controller/           # Contrôleurs (logique métier)
+│   ├── Entity/               # Entités Doctrine (modèles liés à la base de données)
+│   ├── Repository/           # Requêtes personnalisées pour accéder aux entités
+│
+├── templates/                # Fichiers de vues (HTML/Twig)
+│
+├── config/                   # Configuration (routes, doctrine, services...)
+│
+├── .env                      # Fichier d’environnement (base de données, variables système)
+├── composer.json             # Fichier de configuration Composer (dépendances PHP)
+</pre>
 
 
 ---
-
-## ❓ Questions Techniques
-
-### Que contient le répertoire `templates/` ?
-Le répertoire `templates/` contient les **fichiers de vues** (en général en **Twig**), utilisés pour afficher les interfaces utilisateur (formulaires, tableaux, pages HTML...).
-
-### Que retourne `{{ app.asset() }}` ?
-La fonction `{{ app.asset('chemin/vers/fichier') }}` dans Twig génère l’**URL absolue d’un fichier statique** (comme une image, un fichier CSS, JS, etc.) en fonction de la configuration du projet.  
-Exemple :
-```twig
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-🚀 Étapes pour exécuter le projet
-Cloner le projet
 
 
 git clone https://github.com/votre-utilisateur/netticket.git
