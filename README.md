@@ -53,9 +53,6 @@ NetTicket est une application web développée en PHP, destinée à la **gestion
 
 netticket/ ├── public/ # Point d’entrée (index.php) ├── src/ │ ├── Controller/ # Contrôleurs MVC │ ├── Entity/ # Entités (Doctrine) │ ├── Repository/ # Accès base de données ├── templates/ # Fichiers de vues (HTML / Twig) ├── config/ # Config Doctrine, routes... ├── .env # Variables d’environnement ├── composer.json # Dépendances PHP
 
-yaml
-Copier
-Modifier
 
 ---
 
@@ -72,16 +69,12 @@ Exemple :
 🚀 Étapes pour exécuter le projet
 Cloner le projet
 
-bash
-Copier
-Modifier
+
 git clone https://github.com/votre-utilisateur/netticket.git
 cd netticket
 Installer les dépendances avec Composer
 
-bash
-Copier
-Modifier
+
 composer install
 Créer et configurer la base de données
 
@@ -89,21 +82,15 @@ Créez une base de données (ex: netticket_db) via phpMyAdmin ou terminal.
 
 Mettez à jour la configuration dans .env :
 
-ini
-Copier
-Modifier
+
 DATABASE_URL="mysql://user:password@127.0.0.1:3306/netticket_db"
 Créer les entités & générer la base avec Doctrine
 
-bash
-Copier
-Modifier
+
 php bin/console doctrine:schema:update --force
 Lancer le serveur de développement
 
-bash
-Copier
-Modifier
+
 php -S localhost:8000 -t public
 Accéder à l'application
 
@@ -120,13 +107,7 @@ Responsive Design avec Bootstrap.
 
 📧 Contact & Auteurs
 Développé dans le cadre d’un projet académique.
-Contact : votre-email@example.com
+Contact : choiyebsaad2000@gmail.com
 
-📝 Licence
-Ce projet est open-source sous licence MIT.
-
-yaml
-Copier
-Modifier
-
----
+Licence : chouaib saad
+linkedin : https://www.linkedin.com/in/chouaib-saad-bb4106219/
